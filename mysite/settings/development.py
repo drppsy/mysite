@@ -38,5 +38,3 @@ DATABASES = {
         'PORT': '3306',         # mysql服务端口
     }
 }
-
-#test
