@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import pymysql
 from .base import *
 
 # Quick-start development settings - unsuitable for production
@@ -27,14 +26,9 @@ ALLOWED_HOSTS = []
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',   # 数据库引擎
-        'NAME': 'mysite',  # 数据库名，先前创建的
-        'USER': 'root',     # 用户名，可以自己创建用户
-        'PASSWORD': '212233',  # 密码
-        'HOST': '122.51.4.96',  # mysql服务所在的主机ip
-        'PORT': '3306',         # mysql服务端口
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }

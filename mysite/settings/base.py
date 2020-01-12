@@ -29,13 +29,14 @@ INSTALLED_APPS = [
     'blog',
     'read_statistics',
     'comment',
+    'fortest',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -137,11 +138,3 @@ CKEDITOR_CONFIGS= {
 
 #自定义每页的博客数量
 NUMBER_OF_BLOG_IN_EACH_PAGE = 3
-
-#缓存设置
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-    }
-}

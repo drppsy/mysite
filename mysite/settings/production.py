@@ -71,3 +71,11 @@ LOGGING = {
         # },
     },
 }
+
+#缓存设置
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
