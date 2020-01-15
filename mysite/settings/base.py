@@ -138,11 +138,3 @@ CKEDITOR_CONFIGS= {
 
 #自定义每页的博客数量
 NUMBER_OF_BLOG_IN_EACH_PAGE = 3
-
-#缓存设置
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-    }
-}
