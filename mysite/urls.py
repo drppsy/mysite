@@ -15,9 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
 from mysite import views
+
+from mysite.settings.base import MEDIA_ROOT
+from django.views.static import serve
+from rest_framework.documentation import include_docs_urls
+from rest_framework.routers import DefaultRouter
+from rest_framework_jwt.views import obtain_jwt_token
+from goods.views import GoodsListViewSet,CategoryViewset
+
+router = DefaultRouter()
+
+#配置goods的url
+router.register('goods',GoodsListViewSet,basename='goods')
+
+#配置categorys的url
+router.register('categorys',CategoryViewset,basename='categorys')
 
 urlpatterns = [
     path('',views.home,name = 'home'),
@@ -27,6 +43,12 @@ urlpatterns = [
     path('comment/', include('comment.urls')),
     path('login/',views.login,name = 'login'),
     path('register/', views.register, name='register'),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    url('', include(router.urls)),
+    url('docs/', include_docs_urls(title="接口文档")),
+    # JWT的认证接口
+    url('loginfortest/', obtain_jwt_token),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

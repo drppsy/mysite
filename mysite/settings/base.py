@@ -29,9 +29,15 @@ INSTALLED_APPS = [
     'blog',
     'read_statistics',
     'comment',
+    'goods.apps.GoodsConfig',
+    'crispy_forms',
+    'django_filters',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -137,3 +143,11 @@ CKEDITOR_CONFIGS= {
 
 #自定义每页的博客数量
 NUMBER_OF_BLOG_IN_EACH_PAGE = 3
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    )
+}
