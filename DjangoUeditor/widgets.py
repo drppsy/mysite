@@ -5,8 +5,6 @@ from django.contrib.admin.widgets import AdminTextareaWidget
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.utils.http import urlencode
-# import settings as USettings
-from . import settings as uSettings
 from .commands import *
 
 # 修正输入的文件路径,输入路径的标准格式：abc,不需要前后置的路径符号
