@@ -5,7 +5,6 @@ try:
 except:
     # python2
     from urllib import basejoin as urljoin
-from . import settings as USettings
 
 
 class UEditorEventHandler(object):
@@ -157,7 +156,6 @@ class UEditorButtonCommand(UEditorCommand):
             });
             return btn
         """ % {
-            "icon": urljoin(USettings.gSettings.MEDIA_URL, self.icon),
             "onclick": self.onClick(),
             "title": self.title
         }
