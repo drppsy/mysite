@@ -1,7 +1,6 @@
 # coding: utf-8
 
 from django import forms
-from widgets import UEditorWidget
 from DjangoUeditor.models import UEditorField as ModelUEditorField
 
 
@@ -24,7 +23,7 @@ class UEditorField(forms.CharField):
         uSettings = locals().copy()
         del uSettings["self"], uSettings[
             "label"], uSettings["args"], uSettings["kwargs"]
-        kwargs["widget"] = UEditorWidget(attrs=uSettings)
+        # kwargs["widget"] = UEditorWidget(attrs=uSettings)
         kwargs["label"] = label
         super(UEditorField, self).__init__(*args, **kwargs)
 
