@@ -11,6 +11,7 @@
 @file: adminx.py
 @time: 2017/7/4 17:04
 """
+from django.utils.html import format_html
 import xadmin
 from anchor.models import Anchor
 from xadmin.layout import Fieldset
@@ -22,7 +23,7 @@ from xadmin.layout import Fieldset
 
 
 class AnchorAdmin(object):
-    list_display = ['platform','room_id','name','is_noguild','follow','note',]
+    list_display = ['platform','room_id','name','is_noguild','follow','room_link','note']
     readonly_fields = ['platform','room_id','name','is_noguild','follow',]
     search_fields = ['room_id',]
     # list_filter = ['platform','is_noguild','follow','note',]

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Anchor(models.Model):
     name = models.CharField(max_length=50,verbose_name="主播名称")
-    room_id = models.IntegerField(verbose_name="房间号")
+    room_id = models.CharField(max_length=255,verbose_name="房间号")
     guild_id = models.IntegerField(verbose_name="公会号")
     platform = models.CharField(max_length=50,verbose_name="平台名称")
     value_at = models.CharField(max_length=255,verbose_name="获取时间")
@@ -19,6 +19,7 @@ class Anchor(models.Model):
     is_contact = models.CharField(max_length=20,verbose_name="是否联系过")
     uid = models.CharField(max_length=100)
     note = models.CharField(max_length=255,default="",verbose_name="备注")
+    room_link = models.CharField(max_length=255,default="",verbose_name="房间链接")
 
 
     class Meta:
