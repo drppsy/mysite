@@ -24,18 +24,22 @@ from xadmin.layout import Fieldset
 
 class AnchorAdmin(object):
     list_display = ['platform','room_id','name','is_noguild','follow','room_link','note']
-    readonly_fields = ['platform','room_id','name','is_noguild','follow',]
+    list_exclude = ['value_at','redu','section_id','last_kaibo_at','update_at','is_contact','uid','id','guild_id',]
+    readonly_fields = ['platform','room_id','name','is_noguild','follow','room_link',]
     search_fields = ['room_id',]
-    # list_filter = ['platform','is_noguild','follow','note',]
+    list_filter = ['platform','is_noguild','follow',]
     form_layout = (
         Fieldset(None,
-                 'platform','room_id','name','is_noguild','follow','note',
+                 'platform','room_id','name','is_noguild','follow','room_link','note',
                  ),
         Fieldset(None,
                  'guild_id','value_at','redu','section_id','last_kaibo_at','update_at','is_contact','uid',**{"style":"display:None"}
                  ),
     )
     list_editable = ['note',]
+
+    # 隐藏导出功能
+    # list_export = (Fieldset(None,**{"style":"display:None"}))
 
     list_per_page = 20
 
