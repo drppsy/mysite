@@ -39,7 +39,7 @@ class AnchorAdmin(object):
     list_editable = ['note',]
 
     # 隐藏导出功能
-    # list_export = (Fieldset(None,**{"style":"display:None"}))
+    list_export = (Fieldset(None,**{"style":"display:None"}))
 
     list_per_page = 20
 
